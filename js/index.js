@@ -1,11 +1,16 @@
-//aqui estamos pasando un string pero no estamos colocando una varible de tipo string al lando 
-function helloWord (name){
-    return name
-}
+const dinero = 5;
 
-//Aqui no colocamos los tipos de variable que vamos a usar 
-function consola(){
-   console.log(helloWord("kelvin " + " hello word" )); 
-}
+if(dinero >= 10 || dinero <= 10){
+    const pan = 10;
+    const cafe = 3;
+    const pastel = 50;
 
-consola();
+    if(dinero >= pan){console.log("pan comprado")} 
+    else console.log("pan:","no tienes dinero cara comprar"); 
+ 
+    if(dinero >= cafe){console.log("cafe comprado")} 
+    else console.log("cafe:","El dinero no alcanza");
+
+    if(dinero >= pastel){console.log("pastel comprado")} 
+    else console.log("pastel:","no tienes suficiente dinero");
+}
