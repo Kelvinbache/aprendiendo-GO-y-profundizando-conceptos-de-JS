@@ -2,113 +2,127 @@
 package main
 
 //Aqui tenemos que importar unas funciones para usar
+
 import (
 	"fmt"
 )
 
-func main() {
-	fmt.Println()
+// creando la funcion para sumar numeros
+func suma(numero1 int, numero2 int) int {
+	var resultado = numero1 + numero2
+	return resultado
 }
 
-//pequena comparacion de declaracion de condiciones y variables
+// creando un bloque de valores
+var (
+	valor1 = suma(12, 35)
+	valor2 = suma(45, 6)
+	valor3 = suma(59, 98)
+	valor4 = suma(638, 87)
+)
+
+func main() {
+	//array para almacenar los elementos en una posicion
+	var array [4]int = [4]int{valor1, valor2, valor3, valor4}
+
+	//cuando interes una array en for recuerda que es indice y elemento
+	for index, elemento := range array {
+		total := elemento / 8
+
+		//pasando los valores por consola
+		fmt.Println("la localizacion:", index, "valor de los elementos:", total)
+	}
+}
+
+// segunda forma de declaracion de variables en arrays
 // func main() {
-// 	dinero := 50
+// 	x := [5]int{1, 2, 5, 8, 9} //esta inicia con valores
+// 	fmt.Println(x)
+// 	var y [5]int = [5]int{45, 578, 5488, 8754, 578} // es esta estamos asinando parcialmente los valores
+// 	fmt.Println(y)
+// 	person := [4]string{"kelvin", "maria", "miguel", "gabriel"} //solo tienes que ponele el tipo de valor que tenga la variable
+// 	fmt.Println(person)
+// }
 
-// 	if dinero >= 10 || dinero <= 10 {
-// 		pan := 10
-// 		cafe := 3
-// 		pastel := 50
+//declaracion de array primera forma
+// func main() {
+// 	var array [3]string
+// 	array[0] = "kelvin"
+// 	array[1] = "maria"
+// 	array[2] = "nada"
+// 	fmt.Println(array[1])
+// 	fmt.Println(array[0])
+// 	fmt.Println(array[2])
+// }
 
-// 		if dinero >= pan {
-// 			fmt.Println("pan comprado")
-// 		} else {
-// 			fmt.Println("pan:", "Dinero no alcanza")
-// 		}
+// //forma con dos parametro
+// func triangulo(x int, y int) (area int) {
+// 	// aguerdate que tenemos que poner var cuando estamos dentro del bloque
+// 	var parametro int
+// 	parametro = 2 * (x + y)
+// 	fmt.Println(parametro)
+// 	area = (y * x)
+// 	return // estamos retornando los valores para esperar valores
+// }
+// func main() {
+// 	//por esto estamos haciendo un retorno de triangulo
+// 	fmt.Println("area del tringulo", triangulo(12, 35))
+// }
 
-// 		if dinero >= cafe {
-// 			fmt.Println("cafe comprado")
-// 		} else {
-// 			fmt.Println("cafe:", "no tienes dirnero suficiente")
-// 		}
+// otra forma de declarar una function
+// esta forma no retorna dana todo se hace dentro de,su bloque
+// func res(x int, y int) {
+// 	total := x - y
+// 	fmt.Println(total)
+// }
 
-// 		if dinero >= pastel {
-// 			fmt.Println("pastel comprado")
-// 		} else {
-// 			fmt.Println("pastel:", "esta muy costoso")
-// 		}
+// esto una forma de declarar una function con retorno
+// x int, y init = igual espera un para metro para inicia
+// init comenzara para dar un retorno los valores a la variable pedida
+// func add(x int, y int) int {
+// 	total := 0
+// 	total = x + y
+// 	return total
+// }
+
+// func main() {
+// 	sum := add(20, 12)
+// 	res(12, 35)
+// 	fmt.Println(sum)
+// }
+
+// //nos retorna 5 veses cualquier recorrido
+// 	for range "hello" {
+// 		fmt.Println("hello")
+// 	}
+
+//forma 1 de declarar un for
+// func main() {
+// 	for i := 0; i < 10; i++ {
+// 		fmt.Println(i, "<", ">")
 // 	}
 // }
 
-// esto un bloque de declaracion de variables y esto es global
-// var (
+//forma larga de declarar una constante
+// const hello string = "hello"
+
+//forma corta de declarar una constante
+// const name = "kelvin"
+
+//bloque de una constante
+// const (
 // 	name     = "kelvin"
-// 	lastname = "abache"
-// 	numero   = 2004
-// 	telefono = 46545646564
+// 	lastName = "abache"
+// 	telefono = 6456465464
+// 	hello    = "hello word"
 // )
 
 // func main() {
-// 	fmt.Println("esto es nombre:", name)
-// 	fmt.Println("esto es apellido:", lastname)
-// 	fmt.Println("esto es numero:", numero)
-// 	fmt.Println("esto es telefono:", telefono)
+// 	fmt.Println(name, lastName, hello)
+
+// 	fmt.Println(telefono)
 // }
 
-//forma de declara una condicion en GO
-// func main() {
-// 	x := true
-// 	name := "kelvin"
-
-// 	//forma de declara una condicion
-// 	if x {
-// 		lastname := "abache"
-
-// 		if x != false {
-// 			fmt.Println(name)
-// 			fmt.Println(lastname)
-// 			fmt.Println(name + " " + lastname)
-// 		}
-// 	}
-
-// 	fmt.Println(x)
-// }
-
-// func main() {
-//     //forma corta de escribir una variable
-// 	name := "kelvin"
-// 	number := 2000
-// 	verdad := true
-
-// 	fmt.Println(reflect.TypeOf(name))
-// 	fmt.Println(reflect.TypeOf(number))
-// 	fmt.Println(reflect.TypeOf(verdad))
-// }
-
-// forma de claracion en go
-
-// //Aqui estamos represendando un numero
-// var i int
-
-// //Aqui estamos representando un string
-// var s string
-
-// func main() {
-
-// 	//iniciamos una mariable y despues seguimos declarando pero ojo cuando declaras
-// 	var name, lastname string = "kelvin", "abache"
-
-// 	//Aqui estamos dividiendo los numeros por cada lentra
-// 	k, l, m := 1, 2, 3
-
-// 	//igual aqui cada item = dinero y numero = 2000
-// 	item, numero := "Dinero", 2000
-
-// 	//Aqui estamos pengando el nombre y apellido
-// 	fmt.Println(name + " " + lastname)
-
-// 	//aqui estamos sumando los numeros
-// 	fmt.Println(k + l + m)
-
-// 	//igual aqui estamos pegando dinero y numero
-// 	fmt.Println(item, "-", numero)
-// }
+/*cosas para aprender hoy
+5)hacer una mini aplicacion para entender el tema
+*/
