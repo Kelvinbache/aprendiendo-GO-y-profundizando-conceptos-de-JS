@@ -1,41 +1,40 @@
-function sistemaDeOrganizacion(elemento,elemento2,indice){
- const almacen = [];
+function calculador(numero1,numero2,datos){
+   class operacion {
+     constructor(numero1,numero2){ 
+     this.suma = numero1 + numero2
+     this.resta = numero1 - numero2
+   }
+ };
 
- //condicion que estamos colocando a las varibles
-     if(typeof elemento === 'number' && typeof elemento2 === 'number' ){
-        return 'no puedo almacenar numeros';
-    } else almacen.push(elemento,elemento2);
-   
-// retorna los indices de los elementos y los busca 
-  return almacen[indice]
+if (datos === 1){
+   const suma = new operacion(numero1,numero2);
+   return suma.suma
+
+} else if(datos === 2){
+   const resta = new operacion(numero1,numero2);
+   return resta.resta
+};
+
 }
 
-console.log(sistemaDeOrganizacion("persona","persona2",1));
+console.log(calculador(45,6,2))
 
 
-console.log(sistemaDeOrganizacion("persona3","persona4",1));
-
-
-console.log(sistemaDeOrganizacion("persona5","persona6",1));
-
-
-
-
-
-
-/*crear un sistema de organizacion
-1)donde cada elementos sea separado por indice 
-2)poder ver elemento deseado y no ver otros elementos
-3)poder crear nuevos elemetos y aumentar la cola
-4)separar numeros y string
-*/
-
-// //forma de hace una busqueda de triangulo js  
-// function suma(x,y){
-//    const total = 2 * (x + y);
-//    console.log(total)
-//    const area = (x * y)
-//    return area
+// function persona(nombre,apellido){
+//    this.nombre = nombre,
+//    this.apellido = apellido
 // }
 
-// console.log("area del triangulo", suma(12,45));
+// const kelvin = new persona("kelvin","abache")
+// console.log(kelvin);
+
+
+
+
+
+
+/**
+ * construir una calculador con objectos que puedas poner un numero en especifico para hacer una operacion
+ * 
+ * 
+ */
