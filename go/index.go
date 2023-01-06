@@ -1,6 +1,48 @@
 // Tamabie tenemos que llamar un paqueta para empesar
 package main
 
+import (
+	"fmt"
+)
+
+//calculadora con go
+
+type numeros struct {
+	numero1 int
+	numero2 int
+}
+
+func operaciones(dato1, dato2, operacion int) {
+	var numero numeros
+	numero.numero1 = dato1
+	numero.numero2 = dato2
+
+	if operacion == 1 {
+		suma := numero.numero1 + numero.numero2
+		fmt.Println(suma)
+
+	} else if operacion == 2 {
+		reta := numero.numero1 - numero.numero2
+		fmt.Println(reta)
+
+	} else if operacion == 3 {
+		multiplicacion := numero.numero1 * numero.numero2
+		fmt.Println(multiplicacion)
+
+	} else {
+		fmt.Println("operacion no encontradad")
+	}
+
+}
+
+func main() {
+	operaciones(8, 9, 3)
+
+	operaciones(81, 5, 5)
+
+	operaciones(7, 8, 2)
+}
+
 //Aqui tenemos que importar unas funciones para usar
 
 // func main() {
@@ -15,6 +57,7 @@ package main
 
 //forma de estructural los distintos campos de informacion
 // donde estamos definiendo la structura del arreglo
+
 //puedes guardar diferentes datos
 // type persona struct {
 // 	name     string
