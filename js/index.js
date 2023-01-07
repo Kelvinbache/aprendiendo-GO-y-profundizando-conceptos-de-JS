@@ -1,9 +1,13 @@
-class aplicacion{
-   constructor(){
-      this.json = fetch("http://127.0.0.1:5500/archivo.json")
-    }
+async function api(dato){
+   const json = await fetch("http://127.0.0.1:5500/archivo.json");
+   if(json.status === 500 ) return "tenemos problemas para conectar";
+   
+   const cotenido = json.json().then( valor => console.log(valor))
+   return cotenido
 }
-console.log(aplicacion.json);
+
+console.log(api());
+
 
 /***
  * cosas que hacen para mini proyecto 
