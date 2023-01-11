@@ -1,13 +1,28 @@
-async function api(dato){
-   const json = await fetch("http://127.0.0.1:5500/archivo.json");
-   if(json.status === 500 ) return "tenemos problemas para conectar";
+/*metodo get en js para perdir datos */
+const api = new Request("http://127.0.0.1:5500/archivo.json")
+
+
+const promesa =  new Promise((resolve, reject) => {
+   if(api.status === 504 ) reject(new error("tenemos error de conexion"));
+
+/*primera vez usando fetch de esta manera */
+fetch(api).then((result) => result.json())
+
+//recorriendo los datos   
+// mejorar el orden de los elementos 
+   .then((datos) => {   
+      for (const element of datos) {
+         const resultado = element;
+         //cambia las condicion para que empieze a buscar por los id 
+           if(resultado.id === "1") resolve(resultado);
+           if(resultado.id === "2") resolve(resultado);
+       } 
+   });
+});
+
+promesa.then(consola => console.log(consola))
+promesa.catch(error => console.log(error));
    
-   const cotenido = json.json().then( valor => console.log(valor))
-   return cotenido
-}
-
-console.log(api());
-
 
 /***
  * cosas que hacen para mini proyecto 
