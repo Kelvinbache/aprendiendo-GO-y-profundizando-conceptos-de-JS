@@ -1,33 +1,27 @@
-/*metodo get en js para perdir datos */
-const api = new Request("http://127.0.0.1:5500/archivo.json")
+//funcion creadora de elementos 
 
+function creardorDeElemntos(name,lastname,body) {
+   //primero ponemos una condicion para verificar los elementos
+  if(typeof name === 'string' && typeof lastname === 'string'&& typeof body === 'string') return [name,lastname,body];
+  else return 'estos no son elementos tipo string';
+}
 
-const promesa =  new Promise((resolve, reject) => {
-   if(api.status === 504 ) reject(new error("tenemos error de conexion"));
+function pasar([name,lastname,body] = creardorDeElemntos) {
+   const person = {
+      name: name,
+      lastname: lastname,
+      body:body
+   }
 
-/*primera vez usando fetch de esta manera */
-fetch(api).then((result) => result.json())
+ return person;
+}
 
-//recorriendo los datos   
-// mejorar el orden de los elementos 
-   .then((datos) => {   
-      for (const element of datos) {
-         const resultado = element;
-         //cambia las condicion para que empieze a buscar por los id 
-           if(resultado.id === "1") resolve(resultado);
-           if(resultado.id === "2") resolve(resultado);
-       } 
-   });
-});
-
-promesa.then(consola => console.log(consola))
-promesa.catch(error => console.log(error));
-   
 
 /***
- * cosas que hacen para mini proyecto 
- * 1)conectar el archivo json a los js y go
- * 2)mostrar los datos en consola 
- * 3)manejador de errores 
- * 4)poder achadir otros datos al json 
+ * cosas que hacen para mini proyecto CREANDO DATOS JSON
+ * 1) crear una funcion que ordene los datos mediante uso de objectos
+ * 2) crear otra funcion que separe los datos, colocando un id a cada elemento
+ * 3) crear una forma de mostrar los datos requeridos 
+ * 4)poner una funcion que permita una conexion entre dos funciones
+ * donde esta guardado el codigo (https://github.com/Kelvinbache/aprendiendo-GO-y-profundizando-conceptos-de-JS);
  */
