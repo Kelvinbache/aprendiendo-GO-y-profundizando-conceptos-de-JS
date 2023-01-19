@@ -1,0 +1,28 @@
+[
+    [{
+    "id":"1",
+    "nombre":"kelvin",
+    "apellido":"abache",
+    "pais":["venezula","zulia","maracaibo"],
+    "telefono":445645465456464,
+    "amigos":["manuel","jose","milanger"]
+}],
+
+ [{
+    "id":"2",
+    "nombre":"maria",
+    "apellido":"villalobos",
+    "pais":["agentina","","buenos aires"],
+    "telefono":445645465456464,
+    "amigos":["manuel","jose","milanger"]
+}],
+
+ [{ 
+    "id":"3",
+    "nombre":"juan",
+    "apellido":"peres",
+    "pais":["peru","",""],
+    "telefono":445645465456464,
+    "amigos":["manuel","jose","milanger"]
+}]
+]
