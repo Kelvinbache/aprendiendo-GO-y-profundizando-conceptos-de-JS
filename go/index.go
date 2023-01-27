@@ -4,36 +4,32 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"reflect"
 )
 
+// Tienes que ponder los nombres en MAYUSCULAS cuando utilizes el (Json)
 type datos struct {
-	names     string
-	lastnames string
-	bodys     string
+	Names     string
+	Lastnames string
+	Bodys     string
 }
 
 func validador(name, lastname, body string) {
-	valor := reflect.ValueOf(name)
-
-	if valor == reflect.ValueOf(name) {
-		panic("no podemos retornar un numero")
-	} else {
-		almacen := []datos{
-			{names: name, lastnames: lastname, bodys: body},
-		}
-
-		contenido, erro := json.Marshal(almacen)
-
-		if erro != nil {
-			panic(erro)
-		} else {
-			fmt.Println(string(contenido))
-		}
+	//Almacenando los datos
+	almacen := []datos{
+		{Names: name, Lastnames: lastname, Bodys: body},
 	}
+	// Transformando los datos en json
+	contenido, erro := json.Marshal(almacen)
+	// Condicion que valida la salida de los datos
+	if erro != nil {
+		panic(erro)
+	}
+	// Pasondo los datos
+	fmt.Println(string(contenido))
 }
 
 func main() {
+	//Llamamos la funcion pasando los datos
 	validador("kelvin", "abache", "hello")
-	validador("kelvin", "abache", "hello")
+	validador("manuel", "abache", "tengo hanbre")
 }
