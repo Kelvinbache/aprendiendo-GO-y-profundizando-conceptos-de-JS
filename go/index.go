@@ -1,148 +1,217 @@
 // Tamabie tenemos que llamar un paqueta para empesar
 package main
 
-/* 2)Ejercio de typo de dato basico
+import (
+	"fmt"
+	"time"
+)
 
-   crear una codicion para validar el tipo de datos
-   1) funcion para recojer los datos y otra para mostralos
-   2) condicion para validar los valores
-   3) usar que los datos basicos
+/*importado*/
+
+/*Ejercios de practica
+3) crear una matriz donde puedas guardar los dia y mes de las pesonas, tambien poder mostralos en consola
+
+3) Ejercicio (Creador de matriz donde se guarda los meses y dias)
+* Crear un array donde agarra valor numero
+* hacer una condicion donde los parametros sean numerico y no tipo string
+* retorne un array donde salga los valores del mes y dia
+* utilizar paquete de tiempo
+*/
+
+func valores(valor1, valor2 int) {
+	ano := time.Now().Year()
+	mes := time.Now().Month()
+
+	var almacen []int = []int{ano, int(mes)}
+
+	fmt.Println(almacen)
+
+}
+
+func main() {
+	valores(4, 5)
+}
+
+/* 2 Ejercicio Etructura de objectos (Pasos a seguir)
+* Crear un funcion que resiva los parametro
+* guarda los datos en un arreglo
+* Pasar los datos a otra funcion
+* Poner orden los elementos
+
+
+
+/Creando los objectos donde se guarda las variables
+type data struct {
+	Nombre   string
+	Apellido string
+	Edad     int
+	Cuerpo   string
+}
+
+func personas(nombre, apellido, cuerpo string, edad int) {
+	//pasando los valores un contenedor
+	persona := []data{
+		{Nombre: nombre, Apellido: apellido, Cuerpo: cuerpo, Edad: edad},
+	}
+
+	// Utilizando un bucle para recorrer los arreglo,despues guardar los datos en una variable
+	// Manera de recorrer los arreglos pero recuerdad esto hay otras maneras solo tienes que buscar
+	for i := 0; i < len(persona); i++ {
+
+		// Guardando los valores de rrecorrido de persona y despues usar los valores como objectos normales
+		valor := persona[i]
+		fmt.Println("nombre:", valor.Nombre, "||", "apellido:", valor.Apellido, "||", "edad:", valor.Edad, "||", "Cuerpo:", valor.Cuerpo)
+	}
+}
+
+func main() {
+	//Pasando los datos a la funcion personas
+	personas("kelvin", "abache", "hola", 44)
+	personas("santi", "abache", "como esta", 6)
+	personas("marina", "fuentes", "bien", 13)
+}
 
 */
 
-// func recojer(valor interface{}) {
-// 	if reflect.TypeOf(valor) == reflect.TypeOf(valor) {
-// 		fmt.Println(reflect.TypeOf(valor))
+/* 1) Ejercicio de clave y valor| | pasos a seguir:
+ * Primero hacer una map
+ * pasar una clave des una funcion para y comparar los valores
+ * crear la codicional para comparar los dato y si no tiene mismo valor borrarlo
+ * despues hacer un consola para mostrar
+
+// func almacen(clave, valor string) {
+// 	caja := make(map[string]string)
+
+// 	// Para entender mejor nombre de la variable[clave] || valor = variable[clave y valor] el corchete almacena los dos valores
+// 	caja[clave] = valor
+
+// 	// primero comparamos los valores recordando que clave, va tener el contenido del valor, mas la clave que tiene
+// 	if valor == caja[clave] {
+// 		fmt.Println("valor de caja: ", caja[clave])
 // 	} else {
-// 		fmt.Println("ningun dato es permitido aqui")
+// 		// Si la condicion no cumple los valores requeridos
+// 		delete(caja, clave)
+// 		fmt.Println("valores eliminados")
 // 	}
 // }
+
+// // utlizando una llama de otra funcion para utilizarla
 // func main() {
-// 	recojer("kelvin")
-// 	recojer(12.1)
+// 	almacen("kelvin", "hola")
+
+// 	almacen("kelvin", "como estas")
 // }
-
-/*examen de los conceptos que apredendiste hoy
-
-Crear un sistema de organizador de valores
-1) crear una funcion que resiva los valores
-2) hacer una condicion para ver el valor y tipo de dato
-3) mostrarlo en consola 4 diferentes valores y su tipo de dato
-interface == valor que no sabes cual tipo de valor tenga
 */
 
-/*funcion de valores*/
-// func values(value interface{}) {
-// 	//aqui estamos dicion si diferente o igual pasa esto por consola
-// 	if reflect.TypeOf(value) != nil {
-// 		t := reflect.TypeOf(value)
-// 		v := reflect.ValueOf(value)
-// 		fmt.Println("tipo de dato:", t, "||tipo de valor:", v)
-// 	} else {
-// 		fmt.Println("tenemos un error")
-// 	}
-// }
+/*------------------------------------------------Otro concepto---------------------------------------------------------------------------*/
+
+/*Concepto de tiempo
+  1)Como llamar al tiempo y usar los metos basico
+  2) Poner datos o consfigurar datos
+*/
+/*2) cambiar datos o modificarlos
+func main() {
+	//podemos pasar datos y manipular como queramos(esto resive 7 valor{ano,mes,dia,hora,minutos,segundos,tiempo de localida})
+	times := time.Date(2023, 1, 30, 8, 51, 30, 100, time.Local)
+	fmt.Println(times)
+
+	//formato o formatiar la como quieres que se vea
+	fmt.Println(times.Format("2023-1-30 08:051:3 "))
+}
+
+*/
+
+/* 1) como llamar al tiempo
+
 // func main() {
-// 	values("kelvin")
-// 	values(-154)
-// 	values(4.5)
-// 	values(true)
+// 	//now nos tira todo los datos de hora y tiempo
+// 	times := time.Now()
+// 	// podemos pedir diferentes datos mediante los siguientes metodos
+
+// 	//podemos imprimir todos los valores en console
+// 	fmt.Println(
+// 		times.Year(),
+// 		times.Month(),
+// 		times.Day(),
+// 		times.Hour(),
+// 		times.Minute())
 // }
-
-/*valor basico valueOf y typeOf
-  1)valueof nos permite saber el valor de una varible
-  2) typeOf nos permite saber que valor primitivo es
 */
 
-//Tipos de tados que hay golang .
+/*------------------------------------------------Otro concepto--------------------------------------------------------------------------*/
+/* Concepto de estructura de datos
 
-/*
-1(String) "hola soy estring"(pondeos hacerlo directo o usamos su nombre abrebiado que es string)
-2(boolean) que son true o fasel (pondemos  colocar valor directo o usar bool, pero casi siempre sera false)
-3(desimales) 4.5 esto es un decimal(tenemos que poner float64 o float32 dependiendo de la computadora)
-4(number enteros) 4 sepreseta como numero sin decimal (int o solo el numero)
-5(unit) son longitudes que puede tener un valor o unidad que no tiene signo(pero tiene limite de longitud)(investigar mas sobre esto)
-6(rune) podemos hacer transfomaciones entre otras cosas que tendras que investigar mas a fondo
-7(complex64 o cumplex128) almacena numeros complejos de pendiendo cual utlises
+1)Array {nos permite cuandar datos en forma de matriz(poniendo indicadores de cuantos datos van entrar y salir)}
+2)Slice {Permite poner datos sin pertir una parametro en especifico}
+3)Map {Es igual a un array pero esto usar clave y valor para haceder al contenido}
+4)Struct {Podemos separar los diferentes valores, mediante valores unicos de una estructura}
+
 */
 
-/*2) boolean formar de escribir el codigo
+/* 1) array tipo de dato que almacena como una matriz
 func main() {
-	var n bool
-	m := true
 
-	fmt.Println(reflect.TypeOf(n), reflect.TypeOf(m))
-	fmt.Println(n, m)
+	// Cuando ponemos el numero dentro del array, significa que va tener diez entradas de datos, o puede ser menos de pende que nesecites
+	var x [10]int
+
+	//len para ver la longitud que pueda tener un array o una matriz
+fmt.Println("led:", len(x))
+	fmt.Println("emp:", x)
 }
 */
 
-/* 3) floatante o float
-func main() {
-	var n float32
-	n = 4.44
-
-	m := 4.5
-
-	fmt.Println(reflect.TypeOf(n), reflect.TypeOf(m))
-	fmt.Println(n, m)
-}
-/*
-
-/* 4) int ejemplo como se puede escribir el codigo
-func main() {
-	var n int = 45
-	m := 4
-
-	fmt.Println(reflect.TypeOf(n), reflect.TypeOf(m))
-}
-*/
-
-/* 5)unit entero pero sin signo ejemplo de uso
-func main() {
-	var n uint
-	n = -5
-	fmt.Println(reflect.TypeOf(n))
-}
-
-*/
-
-/* 7)ejemplo del uso complex64 y 128
-func main() {
-	var n complex64
-	n = 2 + 4i
-
-	m := 25 + 1i
-	fmt.Println(reflect.TypeOf(n), reflect.TypeOf(m))
-
-}
-*/
-
-//DATOS POR DEFECTO EN GOLAND
-// type datas struct {
-// 	name     string
-// 	lastname string
-// 	age      int
-// }
-// // Para pasar datos por defecto en una estructuras de datos
-// // fill_defaults {poniendo esto una funcion y conjunto por el valor de variable}
-// func (data *datas) fill_defaults() {
-// 	if data.name == "" {
-// 		data.name = "abac"
-// 	}
-// 	if data.lastname == "" {
-// 		data.lastname = "hga"
-// 	}
-// 	if data.age == 0 {
-// 		data.age = 10
-// 	}
-// }
+/* 2)Slice o revanada
 // func main() {
-// 	person1 := datas{name: "kelvin", age: 2}
-// 	person1.fill_defaults()
-// 	fmt.Println(person1)
-// 	person2 := datas{lastname: "abache"}
-// //Cambiamos los datos y si falta uno ponemos uno por defecto
-// //ejemplo de pesona 1 y 2 faltan datos distintos y rellena por defecto con fill_defaults
-// 	person2.fill_defaults()
-// 	fmt.Println(person2)
+// 	// Crear dos array con los vimos valores, pero separa por un igual esto una forma mas flexible de guardar datos
+// 	//  tambien permite no indicar cuantos cortes va tener
+// 	var x []int = []int{1, 4, 8, 7, 4, 4484, 84, 8, 5}
+
+// 	fmt.Println("logintud:", len(x))
+
+// 	fmt.Println("valor:", x)
+ }
+*/
+
+/* 3) Map funciona con clave y valor
+
+// func main() {
+// 	// aqui estamos iniciando el map dentro de los corchetes iniciamos un valor |generalmete iniciamos con string despues asignamos el valor
+// 	m := make(map[string]int)
+
+// // Aqui podemos ver que adentro de los corchetes ponemos la clave y despues el valor
+// 	m["kelvin"] = 40
+
+// // mostramos por consola el valor, pero ojo nombre de la variable y clave
+// 	fmt.Println(m["kelvin"])
+
+// // delete permite borrar la clave del map
+// 	delete(m, "kelvin")
+
+// // ahora el valor vaser 0
+// 	fmt.Println(m["kelvin"])
+ } */
+
+/*  4)Struct o estructura
+
+// type personas struct {
+// 	//cuando creas una estructura recuerdad que los valor van hacer unicos, y no pueden ser cambiados
+// 	nombre   string
+// 	apellido string
+// 	edad     int
 // }
+
+// func main() {
+// 	//utilizamos una varia para implementar otros datos, a la estructura
+
+// 	//manera simple para guardar un solo dato
+// 	kelvin := personas{nombre: "kelvin", apellido: "abache", edad: 16}
+
+// 	// utilizando una array para guardar multiples objectos
+// 	persona := []personas{
+// 		{nombre: "kelvin", apellido: "abache", edad: 18},
+// 		{nombre: "alejandro", apellido: "abache", edad: 45},
+// 	}
+
+// 	fmt.Println(persona)
+// 	fmt.Println(kelvin)
+ } */

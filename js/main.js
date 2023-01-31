@@ -1,9 +1,20 @@
-/*estamos es exportando una funcion */
-import {ejemplo1,ejemplo2} from './index.js';
+const tipoDeValor = ([valor,valor2,valor3,valor4])=>{
+   let a,b,c,d;
 
-let a,b,c,d ;
-[a,b] = ejemplo1();
-console.log(a,b);
+    if(typeof valor == "string") return ({a} = {a:valor});
+    else [a] = [valor];
+   
+    if(typeof valor2 == "string") return ({b} = {b:valor2});
+    else  [b] = [valor2];
+   
+    if(typeof valor3 == "string") return ({c} = {c:valor3});
+    else  [c] = [valor3];
+   
+    if(typeof valor4 == "string") return ({d} = {d:valor4});
+    else [d] = [valor4];
+   
+};
 
-[c,d] = ejemplo2();
-console.log(c,d);
+export {
+    tipoDeValor
+}

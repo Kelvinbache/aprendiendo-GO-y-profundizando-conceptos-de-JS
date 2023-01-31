@@ -1,3 +1,27 @@
+/**
+ * 1)Examen de progreso utilizando los dos conceptos crear un sistema para separar numero y letras
+ * criterio: los numero se guardaran en arreglos y las letras en objectos
+ * 
+ * Pasos a seguir:
+ * 1) Crear por un lado, la funcion que resive y otras que separe los datos
+ * 2) utilizar una condicional para ver tipo de valor que resive, la funcion
+ * 3) dividir donde estara las funciones 
+ * 4) utliza los conceptos vienjo que aprediste ayer 
+ */
+
+
+/*creando la funcion que resive FALTA RESOLVER ESTE EJERCICIO*/
+
+import { tipoDeValor } from "./main.js"
+
+const almacen = (valor1, valor2,valor3, valor4)=>{
+     const contenido = [valor1,valor2,valor3,valor4];
+     tipoDeValor(contenido);
+}
+almacen("kelvin",5,4,5)
+
+
+
 /** Modulos nota: Para usar los modulos con node.js y js tiene que cambiar el tipo de valor ,a module(archivo package.json)
  * 1(import y export) usando las parala export y import (podemodemos exportar una funcion o otro tipo de valor) (los mismo podemos hacer con import podemos importar quier valor que pidamos)
  
