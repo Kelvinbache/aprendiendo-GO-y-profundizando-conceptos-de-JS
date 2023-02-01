@@ -1,4 +1,5 @@
 // Tamabie tenemos que llamar un paqueta para empesar
+
 package main
 
 import (
@@ -28,7 +29,7 @@ func valores(valor1, valor2 int) {
 
 }
 
-func main() {
+func Otro() {
 	valores(4, 5)
 }
 
