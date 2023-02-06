@@ -1,20 +1,68 @@
 package main
 
-/*metodo de array
+import (
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
+/*examne del conocimiento aprendido
+crear un ruta donde puedas petir datos y separar los datos pedidos mediante un bloque de tipos de datos
+
+paso a seguir \:
+1)hacer una funcion donde tenga el codigo de peticion
+2) comprovar el estado de la peticion
+3) hacer condion donde verifiquemos la url
+4) separa los datos
+5) mostrar los datos por consola que separdon por llaves
+*/
+
+type datas struct {
+	Id    int
+	Name  string
+	email string
+}
+
 func main() {
-	// Otro metodo para crear arreglos(... toma todos los valores y guardalos)
-	// var vlor = [...]string{"hola", "com ts", "estoy aqui"}
-	// for i := 0; i < len(vlor); i++ {
-	// 	fmt.Println(vlor[i])
-	// }
+	jsons, error := http.Get("https://jsonplaceholder.typicode.com/users")
+	if error != nil {
+		panic(error)
+	}
 
-	//los unicos metodos para recorrer un arreglo es mediante bucles
-	// tambien existen varias formas de crear arreglos
-	// array := [...]string{"hello", "welcom", "buenos dias", "tengo un jugo"}
-	// array := [2][2] int {4,5,2,4,5,2} \\ este un arreglo de cuatro seldas (pero podemos tener mas de una)
-	// for x, y := range array {
-	// 	fmt.Println(`logintud:`, x, `=>`, y)
-	// }
+	defer jsons.Body.Close() //por defecto los datos van a estar cerca
+	cuerpo, error := ioutil.ReadAll(jsons.Body)
 
+	if error != nil {
+		panic(error)
+	}
+
+	repuesta := string(cuerpo)
+
+	log.Panicf(repuesta)
+}
+
+/*
+ 1) metodos de peticion
+ 2)codigo de estado
+ 3)codigo de respuesta
+ 4)codigo de errores
+*/
+
+/* metodo Get
+metodo get podemos pedir datos mediante la url de la pagin
+func main() {
+	respuesta, error := http.Get("https://jsonplaceholder.typicode.com/users")
+	if error != nil {
+		log.Fatal(error)
+	}
+
+	cuerpo, error := ioutil.ReadAll(respuesta.Body)
+	if error != nil {
+		log.Fatal(error)
+	}
+
+	repuestaDelServidor := string(cuerpo)
+	log.Printf(repuestaDelServidor)
+	log.Printf(respuesta.Status) // aqui estamo usando codigo de estado
 }
 */
