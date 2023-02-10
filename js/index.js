@@ -1,73 +1,47 @@
-/** 
- * @ new Number methods o nuevo metodos de numero
- * @ new methods math o nuevo metodo matematico  
- */
+/*@como recorrer un ojecto*/
 
-/* examen de aprendido de hoy
-   1)Crear un sistema donde pueda pasar un texto  y convierte en numero (calcular la raiz cuadrada del numero)
-   2)crear otro sistema donde puedas calcular un triangulo  
+
+/**metodos del object veremos tres formas de recorrer un objecto 
+ * 1) object.entries parametros que seguir [clave,valor] podemos retonar una valores of separarlos 
+ * 2) object.value solo tiene un unico parametro [value] como su nombre indica solo devuelve el valor 
+ * 3) object.keys solo devuelve la calve del objecto [clave] 
 */
 
+const ejemploKeys = {a:1,b:2,c:3}
+// console.log(Object.keys(ejemploKeys)) solo devuelve la clave del objecto
 
-/*2) sistema mediante un objecto 
-* Crear una clase donde podamos pasar un texto y convertir en numero 
-* calcular los tres lados de un tringulo
-* retornar los valores de la clase 
+const clave = Object.keys(ejemploKeys);
+const valor = Object.values(ejemploKeys);
+
+
+[clave,valor].forEach((elemeto) => {
+  if (elemeto.length == 0){
+     console.log(elemeto);
+
+  } else if (elemeto.length == 1){
+   console.log(elemeto)
+  }
+
+});
+
+ /* const ejemploValue = {numero1:1, numero2:2,numero3:3}
+// console.log(Object.values(ejemploValue)); solo devuelve el valor 
+for(const value of Object.values(ejemploValue)){
+     console.log(value); // solo devuelve el valor del objecto 
+}
 */
+ /* const ejemploEntries = [{nombre:"kelvin",apellido:"abache",telefono:12345345}]
 
-class tringulo{
-     constructor(arriba,ezquierda,derecha){
-          this.arriba = arriba;
-          this.ezquierda = ezquierda;
-          this.derecha = derecha;
-     }
-}
+// ejemploEntries.find( valores => { //ejemplo de objecto dentro de array
+//       for(const [clave,valor] of Object.entries(valores)){
+//            console.log(clave,":",valor)
+//       }
+// })
 
-const numero = new tringulo("4","8","4");
+//console.log(Object.entries(ejemploEntries)) // esto retorna un arreglo ten encuenta eso
 
-const arriba =  numero.arriba;
-const izuierda = numero.izuierda;
-const derecha = numero.derecha;
-
-function resultado() {
- const numero1 = Number(arriba);
- const numero2 = Number(izuierda);
- const numero3 = Number(derecha);
-
- return numero2 * numero3 - Math.PI(numero1) /180;
-}
-
-console.log(resultado());
-
-/*1) sistema de creasion de texto en numero 
-* usar una funcion donde pases un texto numerico
-* hacer una constante donde se convierta en numero 
-* retornar el valor atrior y el actual
- 
-const sistema = (texto) => {
-  const numero = Number(texto);  // Estamos pasomos un texto que tiene un los numerico 
-  return `valor anterior: ${texto} | valor nuevo: ${Math.sqrt(numero)}`; // Despues hacemos la operacion entre valor de texto, retornamos un los resultados
-}
-
-console.log(sistema("8"));
-console.log(sistema("6"));
-console.log(sistema("78"));
-console.log(sistema("24848"));
-*/
-
-/*Primero iremos metodos matematicos y convertidor de numeros
-
-
-// const Numero = "4"; // Number es un meto que convierte los valores tipo texto en numero
- 
-// if( typeof Numero == 'string') {  //podemos hacer gualquier tipo de comparacion entre los valor 
-//      const creador = Number(Numero); 
-//      console.log(creador + 5);
+// for(const [clave,valor] of Object.entries(ejemploEntries)){ // una forma tambien para recorrer objectos mediante este metodo
+//      console.log(`clave: ${clave} || valor:${valor}`)
 // }
 
-*/
-/* metodos matematico nos permite tener todos los metodos matematicos 
- 
-const numero = 8;
-console.log(Math.SQRT1_2 + numero)
 */
